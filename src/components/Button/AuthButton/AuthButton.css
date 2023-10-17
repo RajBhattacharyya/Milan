@@ -1,23 +1,23 @@
 .usertype-dialog {
-    width: 250px;
-    margin-top: 15px;
-    background-color: black;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .usertype-dialog button {
-    background-color: white;
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-  }
+  width: 250px;
+  margin-top: 15px;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
 
-  .usertype-dialog button:hover {
-    background-color: gray;
-    color: white; 
-  }
+.usertype-dialog button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.usertype-dialog button:hover {
+  background-color: gray;
+  color: white;
+}
