@@ -16,9 +16,9 @@ import countries from "../../assets/data/CountryList";
 import AuthButton from "../../components/Button/AuthButton/AuthButton";
 
 const AuthSignup = () => {
-  const [userType, setUserType] = useState("individual");
+  const [userType, setUserType] = useState("user");
   const userTypeOptions = [
-    { value: "individual", label: "Individual (You are a person)" },
+    { value: "user", label: "Individual (You are a person)" },
     { value: "club", label: "Organization (You are a Charity/Club/NGO)" },
   ];
 
@@ -28,7 +28,7 @@ const AuthSignup = () => {
     useFormLogic({}, handleSignupSubmit, "/auth/login", true, userType);
 
   useEffect(() => {
-    if (userType === "individual") {
+    if (userType === "user") {
       setFormState({ ...individualInitialFormState });
     } else {
       setFormState({ ...clubInitialFormState });
@@ -132,13 +132,11 @@ const AuthSignup = () => {
                   onChange={handleChange}
                   required
                   id="slug"
-                  placeholder={
-                    userType === "individual" ? "john-doe" : "abc-club"
-                  }
+                  placeholder={userType === "user" ? "john-doe" : "abc-club"}
                 />
               </div>
 
-              {userType === "individual" ? (
+              {userType === "user" ? (
                 <div className="auth_namediv">
                   <div className="authform_container">
                     <label htmlFor="firstname" className="auth_label">

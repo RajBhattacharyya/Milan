@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import { GoogleAuth } from "../../../service/MilanApi";
+import "./AuthButton.css";
 
 const TopButton = ({
   showgooglebutton,
@@ -12,6 +13,7 @@ const TopButton = ({
   type,
 }) => {
   const navigate = useNavigate();
+  const [isUsertypeDialogOpen, setIsUsertypeDialogOpen] = useState(false);
 
   const handleGoBack = () => {
     navigate("/");
@@ -25,9 +27,15 @@ const TopButton = ({
     );
   };
 
-  const handleGoogle = async () => {
-    const response = await GoogleAuth();
+  const handleGoogle = () => {
+    setIsUsertypeDialogOpen(true);
+  };
+
+  const handleSelectUsertype = async (usertype) => {
+    console.log(usertype);
+    const response = await GoogleAuth(usertype);
     window.location.href = response;
+    setIsUsertypeDialogOpen(false);
   };
 
   return (
@@ -78,6 +86,16 @@ const TopButton = ({
             </button>
           ))}
       </div>
+      {/* Usertype Selection Dialog */}
+      {isUsertypeDialogOpen && (
+        <div className="usertype-dialog">
+          <h5>Select Your Usertype</h5>
+          <button onClick={() => handleSelectUsertype("user")}>
+            Individual
+          </button>
+          <button onClick={() => handleSelectUsertype("club")}>Club</button>
+        </div>
+      )}
     </>
   );
 };

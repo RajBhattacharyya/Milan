@@ -31,7 +31,7 @@ export function useFormLogic(
     formState.country = country;
 
     const validationErrors = isSignup
-      ? userType === "individual"
+      ? userType === "user"
         ? useValidation(formState, true, false)
         : useValidation(formState, false, true)
       : [];
@@ -75,7 +75,7 @@ export function useFormLogic(
 }
 
 export const individualInitialFormState = {
-  usertype: "individual",
+  usertype: "user",
   slug: "",
   email: "",
   password: "",

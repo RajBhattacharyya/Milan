@@ -72,9 +72,10 @@ export const UpdateUser = async (credentials) => {
 };
 
 //* Google Auth screen
-export const GoogleAuth = async () => {
+export const GoogleAuth = async (usertype) => {
   try {
     const response = await Axios.get(authEndpoints.googleLogin, {
+      params: { usertype },
       withCredentials: true,
     });
     return response.data.url;
